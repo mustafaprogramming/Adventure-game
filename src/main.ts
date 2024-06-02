@@ -15,27 +15,29 @@ do{
         name:string
         health:number
         defence:string[]
+        herotype:string
         attack:string[]
         experience:number
         constructor(heroname:string,herotype:string){
             this.name=heroname;
+            this.herotype=herotype;
             this.experience=0;
-            if(herotype==='barbarian'){
+            if(herotype==='Barbarian'){
                 this.health=150;
                 this.attack=['Slamming','Punch','Spear'];
                 this.defence=['Shield','Dodge','Nothing'];
-            }else if(herotype==='dragonborn'){
+            }else if(herotype==='Dragonborn'){
                 this.health=200;
                 this.attack=['Fireball','Dragon Breath','Slamming'];
                 this.defence=['Wall Of Fire','Dodge','Nothing'];
-            }else if(herotype==='warlock'){
+            }else if(herotype==='Warlock'){
                 this.health=80;
                 this.attack=['Fireball','Health Decrease'];
                 this.defence=['Magic Shield','Wall Of Fire','Dodge','Nothing'];
-            }else if(herotype==='necromancer'){
+            }else if(herotype==='Necromancer'){
                 this.health=60;
-                this.defence=['Wall Of Dead','Dodge'];
-                this.attack=['Amry Of Dead','Corspe Explosion','Bone Storm','Nothing'];
+                this.defence=['Wall Of Dead','Dodge','Nothing'];
+                this.attack=['Amry Of Dead','Corspe Explosion','Bone Storm'];
             }else{
                 this.health=0;
                 this.attack=[];
@@ -43,13 +45,13 @@ do{
             }
         }
         increasehealth(){
-            if(this.name==='barbarian'){
+            if(this.herotype==='Barbarian'){
+                this.health=150;
+            }else if(this.herotype==='Dragonborn'){
                 this.health=200;
-            }else if(this.name==='dragonborn'){
-                this.health=250;
-            }else if(this.name==='warlock'){
-                this.health=100;
-            }else if(this.name==='necromancer'){
+            }else if(this.herotype==='Warlock'){
+                this.health=80;
+            }else if(this.herotype==='Necromancer'){
                 this.health=60;
             }else{
                 this.health=0;
@@ -360,7 +362,7 @@ do{
                 type:'list',
                 name:'heroType',
                 message:chalk.rgb(2, 55, 245).bold('Select The Type Of Your Character:'),
-                choices:["barbarian",'dragonborn','warlock','necromancer']
+                choices:["Barbarian",'Dragonborn','Warlock','Necromancer']
             }
         ]);
         if(heroName.heroName.length<=0){
